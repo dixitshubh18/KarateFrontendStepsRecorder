@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Karate Test Recorder",
+  "version": "1.0",
+  "description": "Records clicks and generates Karate frontend test code",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"],
+    "run_at": "document_start"
+  }]
+} 
